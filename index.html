@@ -1,12 +1,153 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>Happy Birthday Sayang 💖</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday 💕</title>
+
+  <!-- Optional: Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#fff6fb;
+      --card:#ffffff;
+      --accent:#ff6fa3;
+      --muted:#6b6b6b;
+    }
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, #fff6fb 0%, #fff 60%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+      color:#222;
+    }
+
+    .card{
+      width:100%;
+      max-width:760px;
+      background:var(--card);
+      border-radius:18px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+      padding:36px;
+      text-align:center;
+      overflow:hidden;
+    }
+
+    .photo{
+      width:180px;
+      height:180px;
+      object-fit:cover;
+      border-radius:50%;
+      border:6px solid #fff;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+      margin:0 auto 18px;
+      display:block;
+    }
+
+    .title{
+      font-size:28px;
+      margin:6px 0 8px;
+      color:var(--accent);
+      font-weight:700;
+    }
+    .subtitle{
+      font-size:16px;
+      margin:0 0 18px;
+      color:var(--muted);
+    }
+
+    .message{
+      font-size:18px;
+      line-height:1.6;
+      color:#333;
+      margin:10px 0 20px;
+      white-space:pre-wrap;
+    }
+
+    .small{
+      font-size:14px;
+      color:#777;
+      margin-top:18px;
+    }
+
+    .controls{
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      margin-top:12px;
+    }
+
+    .btn{
+      background:var(--accent);
+      color:#fff;
+      padding:10px 18px;
+      border-radius:999px;
+      border:0;
+      cursor:pointer;
+      font-weight:600;
+      box-shadow:0 6px 12px rgba(255,111,163,0.18);
+    }
+
+    /* simple fade-in animation */
+    .fade-in { animation:fadeIn .9s ease both; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(8px)} to { opacity:1; transform:none } }
+
+    /* mobile tweaks */
+    @media (max-width:420px){
+      .message{ font-size:16px }
+      .title{ font-size:22px }
+    }
+  </style>
 </head>
-<body style="font-family:Comic Sans MS; text-align:center; background-color:pink;">
-  <h1>🎂 Selamat Ulang Tahun, Cintaku!</h1>
-  <p>Hai manusia paling ngangenin di dunia 😘</p>
-  <p>Hari ini semesta lagi sibuk nyiapin kejutan, karena... <b>kamu ulang tahun!</b> 🥳</p>
-  <p>Kamu tuh kayak Wi-Fi — aku baru sadar betapa pentingnya kamu pas sinyalnya ilang 😭</p>
-  <p>Love you sampai sinyal ilang, kuota abis, dan baterai 1% ❤🔋</p>
+<body>
+  <div class="card fade-in" role="main" aria-labelledby="hb-title">
+    <!-- Replace PHOTO_URL with your image link (imgur/postimages/etc) -->
+    <img class="photo" src="https://i.postimg.cc/Bby4HpmB/Whats-App-Image-2025-11-08-at-14-22-59-e485a233.jpg" alt="Photo of my love">
+
+    <h1 id="hb-title" class="title">Happy Birthday to the one who makes my world brighter 🌷</h1>
+    <p class="subtitle">You deserve all the love, laughter, and happiness this universe can give.</p>
+
+    <div class="message">
+      I’m so proud of the person you are, and even prouder to call you mine 💕
+      
+      Wishing you a year full of magic moments — and me, of course. 😏
+    </div>
+
+    <div class="controls">
+      <!-- Optional: replace MUSIC_URL with an mp3 link (public). If you don't want music, remove the audio element and button. -->
+      <button class="btn" id="playBtn">Play song 🎵</button>
+      <a class="btn" href="https://wa.me/?text=Happy%20Birthday%20%F0%9F%92%96%20%F0%9F%8C%B7" target="_blank" rel="noopener">Send a message 💬</a>
+    </div>
+
+    <p class="small">Tip: Edit this page to replace the photo/link and personalize the text. Made with 💖</p>
+
+    <!-- Hidden audio element -->
+    <audio id="bgAudio" src="MUSIC_URL" preload="none"></audio>
+  </div>
+
+  <script>
+    // Play / Pause logic for the Play button
+    const btn = document.getElementById('playBtn');
+    const audio = document.getElementById('bgAudio');
+
+    btn.addEventListener('click', function(){
+      if(!audio.src || audio.src.includes('MUSIC_URL')){
+        alert('No music URL set. Edit index.html and replace MUSIC_URL with a valid mp3 link (or remove this button).');
+        return;
+      }
+      if(audio.paused){
+        audio.play();
+        btn.textContent = 'Pause song ⏸';
+      } else {
+        audio.pause();
+        btn.textContent = 'Play song 🎵';
+      }
+    });
+  </script>
 </body>
 </html>
